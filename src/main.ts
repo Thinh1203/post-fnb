@@ -9,6 +9,16 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
+  // app.use(
+  //   session({
+  //     secret: process.env.SECRET_KEY,
+  //     resave: false,
+  //     saveUninitialized: false,
+  //     cookie: {
+  //       maxAge: 15 * 60 * 1000,
+  //     },
+  //   }),
+  // );
   await app.listen(3000);
 }
 bootstrap();

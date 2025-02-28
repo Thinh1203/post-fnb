@@ -7,10 +7,13 @@ import { KiotvietModule } from './kiotviet/kiotviet.module';
 import { BoxModule } from './box/box.module';
 import { TypeModule } from './type/type.module';
 import { ProductModule } from './product/product.module';
+import { SessionModule } from './session/session.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    ScheduleModule.forRoot(),
     SupabaseModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -23,6 +26,7 @@ import { ProductModule } from './product/product.module';
     BoxModule,
     TypeModule,
     ProductModule,
+    SessionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

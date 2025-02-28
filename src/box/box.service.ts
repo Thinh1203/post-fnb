@@ -56,6 +56,7 @@ export class BoxService {
           status: body.status,
           description: body.description,
           number_of_people: body.number_of_people,
+          qr_code: body.qr_code,
           type_id: body.type_id,
         })
         .eq('id', id)
