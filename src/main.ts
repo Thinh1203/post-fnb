@@ -9,6 +9,8 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
+
+  app.enableCors({ origin: '*' });
   // app.use(
   //   session({
   //     secret: process.env.SECRET_KEY,

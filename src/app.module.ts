@@ -9,10 +9,14 @@ import { TypeModule } from './type/type.module';
 import { ProductModule } from './product/product.module';
 import { SessionModule } from './session/session.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { OrderModule } from './order/order.module';
+import { MeilisearchModule } from './meilisearch/meilisearch.module';
+import { CategoryModule } from './category/category.module';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true }),
     ScheduleModule.forRoot(),
     SupabaseModule.forRootAsync({
       imports: [ConfigModule],
@@ -27,6 +31,10 @@ import { ScheduleModule } from '@nestjs/schedule';
     TypeModule,
     ProductModule,
     SessionModule,
+    OrderModule,
+    MeilisearchModule,
+    CategoryModule,
+    RedisModule,
   ],
   controllers: [AppController],
   providers: [AppService],
