@@ -20,6 +20,9 @@ export class CreateBoxDto {
   @IsOptional()
   @IsString()
   description: string;
+  @IsOptional()
+  @IsString()
+  qr_code: string;
   @IsNotEmpty()
   @IsString()
   type_id: string;

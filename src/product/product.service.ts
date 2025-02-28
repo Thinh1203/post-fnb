@@ -49,12 +49,17 @@ export class ProductService {
       }
 
       const { data, error, count } = await searchQuery;
+      const last_pages = Math.ceil(count / pageSize);
+      const previous_page = page - 1 < 1 ? null : page - 1;
+      const next_page = page + 1 > last_pages ? null : page + 1;
       return {
         data,
         error,
         pagination: {
           page: page,
           pageSize: pageSize,
+          previous_page,
+          next_page,
           total_items: count,
         },
       };
