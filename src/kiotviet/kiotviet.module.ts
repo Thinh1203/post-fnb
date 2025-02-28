@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { KiotvietService } from './kiotviet.service';
 import { KiotvietController } from './kiotviet.controller';
-import { ConfigModule } from '@nestjs/config';
+import { RedisModule } from 'src/redis/redis.module';
 
 @Module({
   providers: [KiotvietService],
   controllers: [KiotvietController],
-  imports: [ConfigModule],
+  imports: [RedisModule],
+  exports: [KiotvietService],
 })
 export class KiotvietModule {}
